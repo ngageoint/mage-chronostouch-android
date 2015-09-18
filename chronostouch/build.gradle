@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+group 'mil.nga.giat'
+version '1.0.0'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    task sourceJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.java.srcDirs
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository')
+            }
+        }
+        artifacts {
+            archives sourceJar
+        }
+    }
+
+    dependencies {
+        compile 'com.google.android.support:wearable:1.2.0'
+        compile 'com.google.android.gms:play-services-wearable:7.5.0'
+    }
+}
