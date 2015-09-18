@@ -58,7 +58,7 @@ public class GestureManager {
 
 		if (matches != null && !matches.isEmpty()) {
 
-			// TODO : check that sortted in the correct order
+			// TODO : check that sorted in the correct order
 			Collections.sort(matches, new Comparator<Prediction>() {
 				@Override
 				public int compare(Prediction lhs, Prediction rhs) {
