@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="accuracy_circle_fill">#33007AFF</color>
-    <color name="accuracy_circle_stroke">#FF007AFF</color>
-    <color name="gesture_color">#FFFF0000</color>
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-</resources>

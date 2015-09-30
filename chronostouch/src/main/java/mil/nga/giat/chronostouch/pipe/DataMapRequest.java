@@ -44,6 +44,9 @@ public class DataMapRequest {
 			case "float":
 				dataMapRequest.getDataMap().putFloat(key, (Float) dataItem);
 				break;
+			case "Gesture":
+				dataMapRequest.getDataMap().putByteArray(key, ParcelableToByteArrayUtil.toByteArray((Parcelable) dataItem));
+				break;
 			case "Integer":
 			case "int":
 				dataMapRequest.getDataMap().putInt(key, (Integer) dataItem);
@@ -56,10 +59,6 @@ public class DataMapRequest {
 				dataMapRequest.getDataMap().putString(key, (String) dataItem);
 				break;
 			default:
-				if (dataItem.getClass().isAssignableFrom(Parcelable.class)) {
-					dataMapRequest.getDataMap().putByteArray(key, ParcelableToByteArrayUtil.toByteArray((Parcelable) dataItem));
-					break;
-				}
 				return false;
 		}
 		return true;
